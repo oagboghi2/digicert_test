@@ -6,7 +6,13 @@ class LeftNav extends Component {
     render() { 
         return ( 
         <div className = 'nav_container'>
-            Left Nav Placeholder
+            <div>
+            <h1 className = 'nav_header'>Lambda Notes</h1>
+            </div>
+            <div className = 'nav_buttons_container'>
+                <div className='nav_button'>VIEW YOUR NOTES</div>
+                <div className='nav_button'>+CREATE NEW NOTE</div>
+            </div>
         </div> );
     }
 }
