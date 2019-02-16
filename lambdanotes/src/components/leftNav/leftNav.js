@@ -4,7 +4,10 @@ import './index.css';
 class LeftNav extends Component {
     state = {  }
     render() { 
-        return ( <div>Left Nav Placeholder</div> );
+        return ( 
+        <div className = 'nav_container'>
+            Left Nav Placeholder
+        </div> );
     }
 }
  

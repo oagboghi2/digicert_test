@@ -1,0 +1,11 @@
+.nav_container {
+    display: flex;
+    padding: 1rem;
+    width: 220px;
+    min-width: 220px;
+    height: 100vh; /* vh stands fr view height. 
+                    Use it instead of 100% when you want to cover an entire page 
+                    as big as your window consistently
+                    */
+    background-color: lightgray;
+}
