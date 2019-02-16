@@ -1,0 +1,8 @@
+.main_container {
+    display: flex;
+    padding: 1rem;
+    width: 660px;
+    min-width: 0px;
+    height: 100vh;
+    background-color: #666666;
+}
