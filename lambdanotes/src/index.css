@@ -29,3 +29,7 @@ code {
   display: flex;
   padding: 1rem;
 }
+
+.contentHeader {
+  margin: 1rem 0.5rem;
+}
