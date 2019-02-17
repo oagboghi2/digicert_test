@@ -31,8 +31,6 @@ class NoteView extends Component {
         ]
     }
 
-    
-
     render() { 
         return ( 
             <div className = 'noteview_container'>
@@ -41,8 +39,8 @@ class NoteView extends Component {
                         {this.state.notesArray[0].title}
                     </h3>
                     <div>
-                        <a className = 'edit_delete'> Edit</a>
-                        <a className = 'edit_delete'> Delete</a>
+                        <a href='#' className = 'edit_delete'> Edit</a>
+                        <a href='#' className = 'edit_delete'> Delete</a>
                     </div>
             </div>
                 <hr></hr>

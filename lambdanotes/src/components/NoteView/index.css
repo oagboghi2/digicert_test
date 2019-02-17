@@ -10,9 +10,9 @@
 .noteview_Topcontent {
     display: flex;
     justify-content: space-between;
-    border: red solid 1px;
 }
 
 .edit_delete {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
+    color: rgb(66,66,66);
 }
