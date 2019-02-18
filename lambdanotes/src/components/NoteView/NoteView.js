@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import './index.css';
+import DeleteNote from '../DeleteNote/DeleteNote.js';
+
 
 class NoteView extends Component {
     state = { 
+        displayDelete: false,
         notesArray: [
             {
                 _id: 'fhcdjnmk',
@@ -30,6 +33,11 @@ class NoteView extends Component {
             },
         ]
     }
+    /* This is toggle logic. This function flips the displayDelete property in our state
+    If you click delete, the modal will show. If you click it again, the CSS attitubute will be set to hidden*/
+    showModal = () => {
+        this.setState({displayDelete: !this.state.displayDelete})
+    }
 
     render() { 
         return ( 
@@ -40,7 +48,10 @@ class NoteView extends Component {
                     </h3>
                     <div>
                         <a href='#' className = 'edit_delete'> Edit</a>
-                        <a href='#' className = 'edit_delete'> Delete</a>
+                        <a href='#' 
+                        className = 'edit_delete'
+                        onClick={this.showModal}> 
+                        Delete</a>
                     </div>
             </div>
                 <hr></hr>
@@ -49,6 +60,10 @@ class NoteView extends Component {
                         {this.state.notesArray[0].body}
                     </p>
                 </div>
+                <DeleteNote 
+                    toggle={this.state.displayDelete}
+                    showModal={this.showModal}
+                />
             </div>
         )}
     }
