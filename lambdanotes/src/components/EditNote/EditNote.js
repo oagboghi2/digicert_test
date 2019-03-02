@@ -32,5 +32,5 @@ class EditNote extends Component {
             </div>
         )}
 }
- 
+
 export default EditNote;

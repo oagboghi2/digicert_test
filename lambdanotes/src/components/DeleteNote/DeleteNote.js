@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
+import { deleteNote } from '../../actions';
+import { connect } from 'react-redux';
 import './index.css';
 
 class DeleteNote extends Component {
-    state = {  }
+    handleDelete = () => {
+        this.props.deleteNote(this.props.toDelete);
+        this.props.history.push('/');
+    }
     /* We use a ternary operator to 'toggle' between different class names 
     for the div that is holding the modal */
     render() { 
+        console.log('Delete Note Props:', this.props)
         let toggle = this.props.toggle;
         return ( 
         <div className={toggle ? 'delete_wrapper' : 'hidden'}>
@@ -15,7 +21,7 @@ class DeleteNote extends Component {
             <div className = 'delete_buttons_wrapper'>
                 <div 
                     className = 'button button--danger'
-                    onClick={this.props.showModal}
+                    onClick={this.handleDelete}
                 >
                     DELETE
                 </div>
@@ -31,4 +37,4 @@ class DeleteNote extends Component {
     }
 }
 
-export default DeleteNote;
+export default connect(null, { deleteNote })(DeleteNote);

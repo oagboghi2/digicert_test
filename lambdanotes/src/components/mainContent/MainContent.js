@@ -21,5 +21,4 @@ class MainContent extends Component {
         </div> );
     }
 }
- 
 export default MainContent;
