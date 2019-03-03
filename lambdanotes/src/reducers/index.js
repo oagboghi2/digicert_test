@@ -1,4 +1,9 @@
-import {DELETE_NOTE} from '../actions';
+import {
+    DELETE_NOTE,
+    EDIT_NOTE,
+    CREATE_NOTE
+} from '../actions';
+
 
 const initialState = [
                         {
@@ -29,15 +34,27 @@ const initialState = [
 //                  current Application State, {action object}
 
 const notesReducer = (state = initialState, action) => {
+    let temp = Array.from(state);
     switch(action.type){
         case DELETE_NOTE:
-            let temp = Array.from(state);
             state.forEach((item, index) => {
                 if(item._id === action.payload) {
                     temp.splice(index, 1);
                     return;
                 }
-            }) 
+            }); 
+            return temp;
+        case EDIT_NOTE:
+            state.forEach((item, index) => {
+                if (item._id === action.payload._id) {
+                    temp.splice(index, 1);
+                    return;
+                }
+            });
+            temp.push(action.payload);
+            return temp;
+        case CREATE_NOTE:
+            temp.push(action.payload);
             return temp;
         default:
         // return: The Next Application State.

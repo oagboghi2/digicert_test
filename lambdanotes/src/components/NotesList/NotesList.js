@@ -15,7 +15,10 @@ class NotesList extends Component {
         notesArray: []
     }
 
-    
+    componentWillMount(){
+        let reversed = Array.from(this.props.notesArray).reverse()
+        this.setState({ notesArray: reversed });
+    }
 
     render() { 
         console.log('Props inside notesList', this.props)
@@ -23,7 +26,7 @@ class NotesList extends Component {
             <div className = 'noteslist_container'>
                 <div><h3 className = 'contentHeader'>Your Notes:</h3></div>
                     <div className='notesList'>
-                            {this.props.notesArray.map((note, index) => {
+                            {this.state.notesArray.map((note, index) => {
                                 return (
                                     <Link to={'/note/'+note._id} className='button_link'>
                                         <div className='note' key={index + note._id}>

@@ -1,10 +1,50 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { editNote } from '../../actions';
 import './index.css';
-import DeleteNote from '../DeleteNote/DeleteNote.js';
+
+
+const mapStateToProps = (state) => {
+    return {
+        notesArray: state
+    }
+}
+
 
 class EditNote extends Component {
-    state = {  }
+    constructor() {
+        super();
+        this.state = {
+            matched: []
+        }
+    }    
+
+    componentWillMount() {
+        let routeId = this.props.match.params.id;
+        console.log('Route id is: ', routeId);
+        let matched = this.props.notesArray.filter((item) => item._id === routeId);
+        console.log('Matched object', matched);
+        this.setState({ matched })
+        console.log('Matched state', this.state.matched);
+    }
+
+    handleUpdate = () => {
+        // Todo: FIre action here
+        this.props.editNote(this.state.matched[0]);
+        this.props.history.push('/');
+
+    }
+
+    handleChange = (e) => {
+        let temp = Array.from(this.state.matched);
+        temp[0][e.target.name] = e.target.value;
+        this.setState({ matched: temp });
+                
+        //this.setState({ matched: e.target.value });
+    }
+
     render() { 
+        console.log(this)
         return ( 
             <div className = 'noteview_container'>
             <div className = 'noteview_Topcontent'>
@@ -18,19 +58,25 @@ class EditNote extends Component {
                     <input 
                         type='text' 
                         className='createNote_title'
-                        placeholder='Note Title'    
+                        name='title'
+                        value={this.state.matched[0].title}
+                        onChange={this.handleChange}    
                     />
                     <textarea 
                         className='createNote_body'
-                        placeholder='Note Content'
+                        name='body'
+                        value={this.state.matched[0].body }
                         rows='15'
+                        onChange={this.handleChange}  
                     />
-                    <a href='#' className='button_link'>
-                        <div className='nav_button createNote_button'>Update</div>
-                    </a>
+                    <div 
+                        className='nav_button createNote_button'
+                        onClick={this.handleUpdate}
+                        >
+                    Update </div>
                 </div>
             </div>
         )}
 }
 
-export default EditNote;
+export default connect(mapStateToProps, {editNote})(EditNote);
