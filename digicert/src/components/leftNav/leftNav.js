@@ -15,7 +15,7 @@ class LeftNav extends Component {
                     <div className='nav_button'>VIEW YOUR BOOKS</div>
                 </Link>
                 <Link to='/create'>
-                    <div className='nav_button'>+CREATE NEW BOOK</div>
+                    <div className='nav_button'>+ADD NEW BOOK</div>
                 </Link>
             </div>
         </div> );
