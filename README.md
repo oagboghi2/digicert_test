@@ -1,1 +1,7 @@
-# FrontEnd_proj_Ver_2
+# Digicert_Test
+
+Built with create react app. 
+To start
+
+`yarn` to install dependencies
+`yarn start`
