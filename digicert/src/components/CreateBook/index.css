@@ -1,10 +1,10 @@
-.createNote_form {
+.createBook_form {
     display: flex;
     flex-direction: column;
     padding: 0 0.5rem;
 }
 
-.createNote_title {
+.createBook_title {
     height: 40px;
     width: 350px;
     padding: 0.25rem 0.75rem;
@@ -13,7 +13,7 @@
     border: solid 1px #B2B2B2;
 }
 
-.createNote_body {
+.createBook_body {
     resize: none;
     font-size: 1.5;
     padding: 0.75rem;
@@ -22,7 +22,7 @@
     border: solid 1px #B2B2B2; 
 }
 
-.createNote_button {
+.createBook_button {
     width: 200px;
 }
 

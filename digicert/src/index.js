@@ -8,13 +8,13 @@ import { BrowserRouter as Router} from 'react-router-dom';
 // Redux Imports
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import notesReducer from './reducers'
+import booksReducer from './reducers'
 import * as serviceWorker from './serviceWorker';
 
 //const dummyReducer = (state = [], action) => state; //extract into it's own file.
 //first argument is the state, 2nd is the action that returns a modified state/
 
-const store = createStore(notesReducer);
+const store = createStore(booksReducer);
 
 ReactDOM.render(
     (

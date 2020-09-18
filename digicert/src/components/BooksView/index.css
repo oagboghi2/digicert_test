@@ -12,7 +12,14 @@
     justify-content: space-between;
 }
 
-.edit_delete {
+.edit {
     padding: 1rem 0.5rem;
-    color: rgb(66,66,66);
+    /* //color: rgb(66,66,66); */
+    color: white;
+}
+
+.delete {
+    padding: 1rem 0.5rem;
+    /* //color: rgb(66,66,66); */
+    color: red;
 }

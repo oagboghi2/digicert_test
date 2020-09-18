@@ -8,14 +8,14 @@ class LeftNav extends Component {
         return ( 
         <div className = 'nav_container'>
             <div>
-            <h1 className = 'nav_header'>Lambda Notes</h1>
+            <h1 className = 'nav_header'>Digicert Library Books</h1>
             </div>
             <div className = 'nav_buttons_container'>
                 <Link to='/'>
-                    <div className='nav_button'>VIEW YOUR NOTES</div>
+                    <div className='nav_button'>VIEW YOUR BOOKS</div>
                 </Link>
                 <Link to='/create'>
-                    <div className='nav_button'>+CREATE NEW NOTE</div>
+                    <div className='nav_button'>+CREATE NEW BOOK</div>
                 </Link>
             </div>
         </div> );

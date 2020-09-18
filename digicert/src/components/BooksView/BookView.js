@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './index.css';
-import DeleteNote from '../DeleteNote/DeleteNote.js';
-import EditNote from '../EditNote/EditNote.js';
+import DeleteBook from '../DeleteBook/DeleteBook.js';
+import EditBook from '../EditBook/EditBook.js';
 import { connect } from 'react-redux';
 
 
 const mapStateToProps = (state) => {
     return {
-        notesArray: state
+        booksArray: state
     }
 }
 
 
-class NoteView extends Component {
+class BookView extends Component {
     state = { 
         displayDelete: false,
         matched: []
@@ -22,7 +22,7 @@ class NoteView extends Component {
     componentWillMount() {
         let routeId = this.props.match.params.id;
         console.log('Route id is: ', routeId);
-        let matched = this.props.notesArray.filter((item) => item._id === routeId);
+        let matched = this.props.booksArray.filter((item) => item._id === routeId);
         console.log('Matched object', matched);
         this.setState({matched})
         console.log('Matched state', this.state.matched);
@@ -36,21 +36,21 @@ class NoteView extends Component {
     }
 
     render() { 
-        console.log('NoteView Props: ', this.props)
+        console.log('bookView Props: ', this.props)
         return ( 
-            <div className = 'noteview_container'>
-            <div className = 'noteview_Topcontent'>
+            <div className = 'bookview_container'>
+            <div className = 'bookview_Topcontent'>
                     <h3 className = 'contentHeader'>
                         {this.state.matched[0].title}
                     </h3>
                     <div>
                         <Link to={`/edit/${this.props.match.params.id}`} 
-                            className = 'edit_delete'
+                            className = 'edit'
                             >   
                                 Edit
                         </Link>
                         <a href='#' 
-                            className = 'edit_delete'
+                            className = 'delete'
                             onClick={this.showModal}
                             > 
                                 Delete
@@ -58,12 +58,12 @@ class NoteView extends Component {
                     </div>
             </div>
                 <hr></hr>
-                <div className='notesList'>
+                <div className='booksList'>
                     <p className = ''>
                         {this.state.matched[0].body}
                     </p>
                 </div>
-                <DeleteNote 
+                <DeleteBook
                     toggle={this.state.displayDelete}
                     showModal={this.showModal}
                     toDelete={this.state.matched[0]._id}
@@ -72,4 +72,4 @@ class NoteView extends Component {
             </div>
         )}
     }
-export default connect(mapStateToProps, {/* Actioms Here */})(NoteView);
+export default connect(mapStateToProps, {/* Actioms Here */})(BookView);

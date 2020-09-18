@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { editNote } from '../../actions';
+import { editBook } from '../../actions';
 import './index.css';
 
 
 const mapStateToProps = (state) => {
     return {
-        notesArray: state
+        booksArray: state
     }
 }
 
 
-class EditNote extends Component {
+class EditBook extends Component {
     constructor() {
         super();
         this.state = {
@@ -22,7 +22,7 @@ class EditNote extends Component {
     componentWillMount() {
         let routeId = this.props.match.params.id;
         console.log('Route id is: ', routeId);
-        let matched = this.props.notesArray.filter((item) => item._id === routeId);
+        let matched = this.props.booksArray.filter((item) => item._id === routeId);
         console.log('Matched object', matched);
         this.setState({ matched })
         console.log('Matched state', this.state.matched);
@@ -30,7 +30,7 @@ class EditNote extends Component {
 
     handleUpdate = () => {
         // Todo: FIre action here
-        this.props.editNote(this.state.matched[0]);
+        this.props.editBook(this.state.matched[0]);
         this.props.history.push('/');
 
     }
@@ -46,31 +46,31 @@ class EditNote extends Component {
     render() { 
         console.log(this)
         return ( 
-            <div className = 'noteview_container'>
-            <div className = 'noteview_Topcontent'>
+            <div className = 'bookview_container'>
+            <div className = 'bookview_Topcontent'>
                     <h3 className = 'contentHeader'>
-                        Edit Note:
+                        Edit Book:
                     </h3>
                     
             </div>
                 <hr></hr>
-                <div className='createNote_form'>
+                <div className='createBook_form'>
                     <input 
                         type='text' 
-                        className='createNote_title'
+                        className='createBook_title'
                         name='title'
                         value={this.state.matched[0].title}
                         onChange={this.handleChange}    
                     />
                     <textarea 
-                        className='createNote_body'
+                        className='createBook_body'
                         name='body'
                         value={this.state.matched[0].body }
                         rows='15'
                         onChange={this.handleChange}  
                     />
                     <div 
-                        className='nav_button createNote_button'
+                        className='nav_button createBook_button'
                         onClick={this.handleUpdate}
                         >
                     Update </div>
@@ -79,4 +79,4 @@ class EditNote extends Component {
         )}
 }
 
-export default connect(mapStateToProps, {editNote})(EditNote);
+export default connect(mapStateToProps, {editBook})(EditBook);
